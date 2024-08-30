@@ -23,9 +23,9 @@ const queryClient = new QueryClient({
   },
 });
 
-const router = createHashRouter([
+const router = createHashRouter ([
   {
-    path: "Tipsy-Mix",
+    path: "/",
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
@@ -36,18 +36,18 @@ const router = createHashRouter([
         loader: landingLoader(queryClient),
       },
       {
-        path: "Tipsy-Mix/cocktail/:id",
+        path: "cocktail/:id",
         errorElement: <SinglePageError />,
         loader: singleCocktailLoader(queryClient),
         element: <Cocktail />,
       },
       {
-        path: "Tipsy-Mix/newsletter",
+        path: "newsletter",
         element: <Newsletter />,
         action: newsletterAction,
       },
       {
-        path: "Tipsy-Mix/about",
+        path: "about",
         element: <About />,
       },
     ],
