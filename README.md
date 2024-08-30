@@ -1,7 +1,7 @@
 # Tipsy Mix
 A delightful cocktail recipe application built with React JS, leveraging the CocktailDB API to provide users with a wide selection of drinks. This project showcases modern web development practices, offering users a seamless and intuitive experience to explore and search for their favorite cocktails. The application also includes an About page and a Newsletter sign-up feature, ensuring an engaging user experience.
 
-**Live Website** - [Tipsy Mix](https://theblaisecode.github.io/Tipsy-Mix/)
+**Live Website** - https://theblaisecode.github.io/Tipsy-Mix/
 
 <br/>
 
