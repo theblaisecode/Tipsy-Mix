@@ -1,8 +1,9 @@
 {
-  "name": "contentful",
+  "name": "tipsymix",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://theblaisecode.github.io/Tipsy-Mix",
   "proxy": "https://course-api.com",
   "scripts": {
     "dev": "vite",
