@@ -11,7 +11,7 @@ function Error() {
         <div>
           <img src={img} alt="page not found" />
           <h3>Ohh!</h3>
-          <p>We can't seem to fid the page you are looking for</p>
+          <p>We can't seem to find the page you are looking for</p>
           <Link to="/">Back to Home</Link>
         </div>
       </ErrorWrapper>

@@ -2,7 +2,8 @@ import CocktailCard from "../CocktailCard/CocktailCard.jsx";
 import CocktailListWrapper from "./CocktailList";
 
 function CocktailList({ drinks }) {
-  if (!drinks) {
+  console.log(drinks)
+  if (!drinks || !Array.isArray(drinks)) {
     return (
       <CocktailListWrapper>
         <h4>No matching cocktails found...</h4>
