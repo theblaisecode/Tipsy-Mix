@@ -27,7 +27,6 @@ export const loader =
 function Cocktail() {
   const { id } = useLoaderData();
 
-  // if (!data) {return <h2>Something went wrong...</h2>}
   const { data } = useQuery(singleCocktailQuery(id));
   if (!data) {
     return <Navigate to="/" />;
@@ -44,11 +43,23 @@ function Cocktail() {
     strInstructions: instructions,
   } = singleDrink;
 
-  const validIngredients = Object.keys(singleDrink)
+  // Get both ingredients and their measures
+  const ingredients = Object.keys(singleDrink)
     .filter(
       (key) => key.startsWith("strIngredient") && singleDrink[key] !== null
     )
-    .map((key) => singleDrink[key]);
+    .map((key, index) => {
+      const ingredientName = singleDrink[key];
+      const measureKey = `strMeasure${index + 1}`;
+      const measure = singleDrink[measureKey] || "";
+      return {
+        name: ingredientName,
+        measure: measure,
+        image: `https://www.thecocktaildb.com/images/ingredients/${encodeURIComponent(
+          ingredientName
+        )}-Small.png`,
+      };
+    });
 
   return (
     <CocktailWrapper>
@@ -77,16 +88,25 @@ function Cocktail() {
             <span className="drink-data">glass:</span> {glass}
           </p>
           <p>
-            <span className="drink-data">Ingredient:</span>{" "}
-            {validIngredients.map((item, index) => {
+            <span className="drink-data">Ingredients:</span>
+          </p>
+          <div className="ingredients-grid">
+            {ingredients.map((item, index) => {
               return (
-                <span className="ing" key={item}>
-                  {item}
-                  {index < validIngredients.length - 1 ? "," : ""}
-                </span>
+                <div key={item.name} className="ingredient-item">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="ingredient-img"
+                  />
+                  <div className="ingredient-info">
+                    <p>{item.name}</p>
+                    <p className="measure">{item.measure}</p>
+                  </div>
+                </div>
               );
             })}
-          </p>
+          </div>
           <p>
             <span className="drink-data">instructions:</span> {instructions}
           </p>

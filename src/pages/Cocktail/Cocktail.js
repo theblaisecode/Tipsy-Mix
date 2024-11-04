@@ -42,6 +42,45 @@ const CocktailWrapper = styled.section`
     margin-right: 0.5rem;
   }
 
+  .ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .ingredient-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    background: var(--white);
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow-2);
+  }
+
+  .ingredient-img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+  }
+
+  .ingredient-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ingredient-info p {
+    margin: 0;
+  }
+
+  .measure {
+    color: var(--grey-500);
+    font-size: 0.85em;
+  }
+
   @media (min-width: 992px) {
     .drink {
       display: grid;
